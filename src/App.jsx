@@ -1,7 +1,19 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import ProductsPage from "./pages/ProductsPage";
+import DetailsPage from "./pages/DetailsPage";
+import CheckoutPages from "./pages/CheckoutPages";
+import PageNotFound from "./pages/404";
+
 function App() {
   return (
     <>
-      <h1>Store</h1>
+      <Routes>
+        <Route index element={<Navigate to="/products" replace />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:id" element={<DetailsPage />} />
+        <Route path="/checkout" element={<CheckoutPages />} />
+        <Route path="/*" element={<PageNotFound />} />
+      </Routes>
     </>
   );
 }
