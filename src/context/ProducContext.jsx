@@ -24,4 +24,10 @@ function ProductsProvider({ children }) {
   );
 }
 
+const useProducts = () => {
+  const products = useContext(ProductContext);
+  return products;
+};
+
 export default ProductsProvider;
+export { useProducts };
